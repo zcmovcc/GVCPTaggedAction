@@ -159,7 +159,7 @@ Add these sections to the end of **§14.2 Action Control Features**.
 > |Visibility|Guru
 > |Values|≥0
 > 
-> Provides the number of bytes that will be truncated from the beginning of the action tag to form ChunkActionTag. The user can select only a sub segment of the tag data (especially in one-action-triggers-multi-devices use case). This value indicates the extraction starting point, relative to the beginning of the action tag.
+> Provides the number of bytes that will be truncated from the beginning of the action tag to form ChunkActionTag. The user can select a sub segment of the tag data (especially in one-action-triggers-multi-devices use case). This value indicates the extraction starting point, relative to the beginning of the action tag.
 
 * Add section for **ActionTagChunkBudget**
 
