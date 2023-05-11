@@ -2,8 +2,8 @@
 
 **Request For Comments**
 
-* **Date**: 2023-05-10
-* **Version**: 0.2.0
+* **Date**: 2023-05-11
+* **Version**: 0.3.0
 * **Author**: WenHua Zheng
 * **Email**: z at cmov dot cc
 * **Latest**: https://github.com/zcmovcc/GVCPTaggedAction
@@ -14,7 +14,13 @@ This is a proposal to add *Tagged Action Commands* to GigE Vision standard and t
 
 ## 2. Introduction
 
-TODO
+The GigE Vision protocol is a widely used standard for image capturing over Ethernet networks. While the standard *action* commands are powerful, they may not always be sufficient to meet the needs of certain applications. In particular, there may be situations where additional information needs to be transmitted along with an action command, such as a unique identifier or parameter settings. To address this need, we propose the addition of *Tagged Action Commands* to the GigE Vision standard.
+
+Two possible ways have been used in the past to identify each image and determine which triggering resulted in which image. One way involved using a counting mechanism that was often unreliable  due to packet loss or signal noise. The other way required trigger devices and cameras to support the PTP protocol and a timestamp searching algorithm. With the proposed Tagged Action Commands, users can simplify this task by embedding a unique ID directly in the action packet and retrieving it from a *chunk* of the image payload.
+
+In order to provide maximum flexibility, the format and semantics of the tag are intentionally left undefined. This allows users to include any type of content within the tag. As another example, a classification code can be passed to instruct the image receiver to handle each image differently. The camera's primary responsibility is to transport the raw bytes from the action tag to the image receiver in the form of a *chunk*. While out of scope of this proposal, potentially a portion of the tag may also be used to influence the camera's image capture itself.
+
+Section 3.1 outlines the proposed changes to the GigE Vision specification, defining the format of Tagged Action Commands and three Tagged Action Command support levels. Section 3.2 proposes adding tag and chunk related features to the GenICam SFNC standard, enabling users to utilize tags in the form of chunks. Section 4 gives several examples of how operations are carried out at the byte level.
 
 ## 3. Proposed Wording
 
