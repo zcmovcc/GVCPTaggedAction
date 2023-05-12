@@ -2,8 +2,8 @@
 
 **Request For Comments**
 
-* **Date**: 2023-05-11
-* **Version**: 0.3.0
+* **Date**: 2023-05-12
+* **Version**: 0.3.1
 * **Author**: WenHua Zheng
 * **Email**: z at cmov dot cc
 * **Latest**: https://github.com/zcmovcc/GVCPTaggedAction
@@ -250,7 +250,7 @@ Suppose we have a camera model called _Nano100_ that has one action signal named
 |ActionSelector|{ 1 }|1
 |ActionGroupKey[ActionSelector=1]|-|0
 |ActionGroupMask[ActionSelector=1]|-|0xFFFFFFFF
-|ActionTagChunkOffset[ActionSelector=1]|{ 0, 1, 2, 3, ..., 540 }|0
+|ActionTagChunkOffset[ActionSelector=1]|{ 0, 1, 2, 3, ..., 548 }|0
 |ActionTagChunkBudget[ActionSelector=1]|{ 0, 1, 2, 3, ..., 20 }|8
 |AcquisitionBurstFrameCount|-|1
 |TriggerMode[TriggerSelector=FrameBurstStart]|{ Off, On }|On
