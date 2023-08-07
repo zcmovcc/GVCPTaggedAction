@@ -2,8 +2,8 @@
 
 **Request For Comments**
 
-* **Date**: 2023-05-12
-* **Version**: 0.3.1
+* **Date**: 2023-08-08
+* **Version**: 0.3.3
 * **Author**: WenHua Zheng
 * **Email**: z at cmov dot cc
 * **Latest**: https://github.com/zcmovcc/GVCPTaggedAction
@@ -465,6 +465,14 @@ The following table shows example commands and the reactions of each camera:
 |11|Action(Group 1):<br>`42 41 01 00`<br>`00 14 00 06`<br>`00 00 00 00`<br>`00 00 00 01`<br>`FF FF FF FF`<br>`00 06 00 04`<br>`F0 F1 F2 F3`|-|-|-|
 |12|-|ignore|ignore|ignore,<br>because AcquisitionFrameCount=3<br>and this is the 4th frame trigger
 
-## Q&A
+## 5. Q&A
 
-TODO
+### 5.1 Q: May `ActionTagChunkBudget`'s value change during acquisition?
+
+A: It's the choice of the device implementation.
+
+It's worth noting that the GVSP payload size depends on `ActionTagChunkBudget`. If the device has a fixed payload size during acquisition, `ActionTagChunkBudget` should be locked, similar to how `width` and `height` are locked. For these devices, the value cannot be changed during acquisition.
+
+### 5.2 Q: May `tag_offset`/`tag_length` change during acquisition?
+
+A: Yes. The values of these fields may be different across each Action command. It's even possible that there are no tags at all in some commands. Those are still valid Action commands.
